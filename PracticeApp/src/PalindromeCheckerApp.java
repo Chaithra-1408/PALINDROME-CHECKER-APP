@@ -1,13 +1,22 @@
+
+
 public class PalindromeCheckerApp {
 
+    /**
+     * Application entry point for UC3.
+     *
+     * @param args Command-line arguments
+     */
     public static void main(String[] args) {
-        String word = "madam";
-        String original = word.toLowerCase();
-        String reversed = new StringBuilder(original).reverse().toString();
-        if (original.equals(reversed)) {
-            System.out.println("The word \"" + word + "\" is a palindrome.");
+        String input = "madam";
+        String reversed = "";
+        for (int i = input.length() - 1; i >= 0; i--) {
+            reversed = reversed + input.charAt(i);
+        }
+        if (input.equals(reversed)) {
+            System.out.println("The given string \"" + input + "\" is a Palindrome.");
         } else {
-            System.out.println("The word \"" + word + "\" is NOT a palindrome.");
+            System.out.println("The given string \"" + input + "\" is NOT a Palindrome.");
         }
     }
 }
