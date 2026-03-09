@@ -1,16 +1,26 @@
 public class PalindromeCheckerApp {
     public static void main(String args[]){
         // Hardcoded string to check
-        String str = "madam";
+        String str = "Madam";
+
+        // Convert string to lowercase to make check case-insensitive
+        str = str.toLowerCase();
+
+        // Convert string to character array
+        char[] chars = str.toCharArray();
+
+        // Two-pointer approach
+        int left = 0;
+        int right = chars.length - 1;
         boolean isPalindrome = true;
 
-        // Loop only half of the string
-        for (int i = 0; i < str.length() / 2; i++) {
-            // Compare characters from start and end
-            if (str.charAt(i) != str.charAt(str.length() - 1 - i)) {
+        while (left < right) {
+            if (chars[left] != chars[right]) {
                 isPalindrome = false;
-                break; // No need to check further
+                break; // Stop checking once mismatch is found
             }
+            left++;
+            right--;
         }
 
         // Print result
